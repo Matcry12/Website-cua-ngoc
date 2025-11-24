@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chúc Mừng Ngày Nhà Giáo Việt Nam - 20/11</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Confetti Library -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <!-- Custom Styles config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-gold': '#D4AF37',
+                        'brand-cream': '#F9F7F2',
+                        'brand-dark': '#1a1a1a',
+                        'brand-blue': '#2C3E50',
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Inter"', 'sans-serif'],
+                        hand: ['"Dancing Script"', 'cursive'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Glassmorphism Classes */
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .glass-dark {
+            background: rgba(20, 20, 20, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Animations */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .animate-float-delayed {
+            animation: float 7s ease-in-out infinite 1s;
+        }
+
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+            will-change: opacity, visibility;
+        }
+
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        /* Envelope Animation */
+        .envelope-container {
+            perspective: 1000px;
+        }
+        
+        .card-flip {
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+        }
+        
+        .card-flip.flipped {
+            transform: rotateY(180deg);
+        }
+        
+        .card-front, .card-back {
+            backface-visibility: hidden;
+        }
+        
+        .card-back {
+            transform: rotateY(180deg);
+        }
+    </style>
+</head>
+<body class="bg-brand-cream text-brand-dark overflow-x-hidden antialiased font-sans selection:bg-brand-gold selection:text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 transition-all duration-300 p-4" id="navbar">
+        <div class="max-w-6xl mx-auto glass rounded-full px-6 py-3 flex justify-between items-center shadow-sm">
+            <div class="font-serif font-bold text-xl tracking-tighter text-brand-blue">
+                20<span class="text-brand-gold">/</span>11
+            </div>
+            <div class="hidden md:flex space-x-8 text-sm font-medium text-gray-600">
+                <a href="#hero" class="hover:text-brand-gold transition">Trang Chủ</a>
+                <a href="#parents" class="hover:text-brand-gold transition">Ba & Mẹ</a>
+                <a href="#message" class="hover:text-brand-gold transition">Lá Thư</a>
+            </div>
+            <button onclick="playMusic()" id="musicBtn" class="w-10 h-10 rounded-full bg-brand-gold text-white flex items-center justify-center hover:bg-yellow-600 transition shadow-lg">
+                <i class="fas fa-music"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+        <!-- Abstract Background Shapes -->
+        <div class="absolute top-0 left-0 w-full h-full z-0 opacity-30">
+            <div class="absolute top-10 left-10 w-72 h-72 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl animate-float"></div>
+            <div class="absolute bottom-10 right-10 w-96 h-96 bg-yellow-200 rounded-full mix-blend-multiply filter blur-xl animate-float-delayed"></div>
+            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+        </div>
+
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
+            <span class="inline-block py-1 px-3 rounded-full bg-blue-50 text-brand-blue text-xs font-bold tracking-widest uppercase mb-6 shadow-sm border border-blue-100 fade-in-section">
+                20 Tháng 11
+            </span>
+            <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl font-bold text-brand-blue mb-6 leading-tight fade-in-section">
+                Gửi Những Người Thầy <br/>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-gold to-yellow-600 font-hand text-6xl md:text-8xl lg:text-9xl px-2">Đầu Tiên</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-600 mb-10 max-w-2xl mx-auto fade-in-section delay-200 font-light">
+                Chúc mừng ngày Nhà giáo Việt Nam. Ba mẹ không chỉ dạy dỗ học sinh mà còn dạy con những bài học quan trọng nhất của cuộc đời.
+            </p>
+            <div class="flex justify-center gap-4 fade-in-section delay-300">
+                <a href="#parents" class="px-8 py-3 bg-brand-blue text-white rounded-full font-medium hover:bg-gray-800 transition shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                    Xem Lời Chúc
+                </a>
+                <a href="#surprise" class="px-8 py-3 glass text-brand-blue border border-gray-300 rounded-full font-medium hover:bg-white transition shadow hover:shadow-md">
+                    Mở Quà Bất Ngờ
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- For Mom & Dad Section -->
+    <section id="parents" class="py-24 bg-white relative">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in-section">
+                <h2 class="font-serif text-4xl md:text-5xl font-bold text-brand-blue mb-4">Ba Mẹ Kính Yêu</h2>
+                <div class="w-24 h-1 bg-brand-gold mx-auto"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- Dad Card -->
+                <div class="group fade-in-section">
+                    <div class="relative overflow-hidden rounded-2xl shadow-2xl bg-slate-50 border border-slate-100 hover:shadow-3xl transition duration-500 transform hover:-translate-y-2">
+                        <!-- Image Container for Dad -->
+                        <div class="h-64 w-full bg-gray-200 relative overflow-hidden group-hover:opacity-90 transition">
+                             <!-- DÁN LINK ẢNH CỦA BA VÀO DƯỚI ĐÂY -->
+                            <img src="https://scontent.fhan20-1.fna.fbcdn.net/v/t39.30808-6/500460686_2240203259749136_186122514563026182_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeHebVYShAO65u3T5KpHwKzbCniSHIBFNHQKeJIcgEU0dF6O_kIK7ZO_Xsd-MzwksUrlh6wrJeL3tMxWcpI1Aer4&_nc_ohc=UOsEr4jptIgQ7kNvwFkfdSR&_nc_oc=AdlI5BHkVv5yMEK7zVYmxVlZfDPyhLjC68mG2m77uUXkQ5qVniF8YLGY8TLctleHrGI&_nc_zt=23&_nc_ht=scontent.fhan20-1.fna&_nc_gid=_iivZ44ODytKYODRQTC39Q&oh=00_AfiFTkFUQ6SA5d2gzNAKccWZ9_1f4z4LOl6uUKw_1u0cBA&oe=692A6020" alt="Ảnh của Ba" class="w-full h-full object-cover object-top">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                            <div class="absolute bottom-4 left-4 text-white">
+                                <div class="text-xs font-bold uppercase tracking-wider bg-brand-gold inline-block px-2 py-1 rounded mb-1">Thầy Giáo Của Con</div>
+                            </div>
+                        </div>
+                        
+                        <div class="p-8">
+                            <h3 class="font-serif text-3xl font-bold mb-2">Gửi Ba</h3>
+                            <p class="text-sm text-brand-gold font-bold uppercase tracking-wide mb-4">Người Dẫn Đường Thông Thái</p>
+                            <p class="text-gray-600 leading-relaxed mb-6">
+                                Cảm ơn Ba đã dạy con sự mạnh mẽ, kỷ luật và giá trị của sự chăm chỉ. Ba gánh vác cả lớp học và gia đình với sự ân cần. Con tự hào là con của Ba.
+                            </p>
+                            <div class="border-t border-gray-200 pt-4 flex justify-between items-center">
+                                <span class="font-hand text-xl text-gray-500">Yêu Ba nhiều</span>
+                                <i class="fas fa-heart text-red-500"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mom Card -->
+                <div class="group fade-in-section delay-200">
+                    <div class="relative overflow-hidden rounded-2xl shadow-2xl bg-slate-50 border border-slate-100 hover:shadow-3xl transition duration-500 transform hover:-translate-y-2">
+                         <!-- Image Container for Mom -->
+                         <div class="h-64 w-full bg-gray-200 relative overflow-hidden group-hover:opacity-90 transition">
+                            <!-- DÁN LINK ẢNH CỦA MẸ VÀO DƯỚI ĐÂY -->
+                            <img src="https://scontent.fhan2-4.fna.fbcdn.net/v/t1.6435-9/73341374_831563570613119_7324976035093544960_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeFOlCFt3YMgNPzZQsu-t39Tr-fvdH3Q0miv5-90fdDSaEzUFbGu13ePmbNT3rGQm3lOmB10bHmcHSOszk1ux4mk&_nc_ohc=0A6ouuqvhfAQ7kNvwEuMEkg&_nc_oc=Adk9-YgO0UsWqhLI1JtKNJx67l6j2p2EHQdskFQORXfHAVjMqpbMwWZy-PA9hAaV_Zw&_nc_zt=23&_nc_ht=scontent.fhan2-4.fna&_nc_gid=z7U5iba3j4zxJh7iZja9bQ&oh=00_AfhgjgjbCGqlNasD_ZRai7COBsCY_38-GhPfX3wSwQWSNg&oe=694BD864" alt="Ảnh của Mẹ" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                            <div class="absolute bottom-4 left-4 text-white">
+                                <div class="text-xs font-bold uppercase tracking-wider bg-brand-gold inline-block px-2 py-1 rounded mb-1">Cô Giáo Của Con</div>
+                            </div>
+                        </div>
+
+                        <div class="p-8">
+                            <h3 class="font-serif text-3xl font-bold mb-2">Gửi Mẹ</h3>
+                            <p class="text-sm text-brand-gold font-bold uppercase tracking-wide mb-4">Trái Tim Dịu Dàng</p>
+                            <p class="text-gray-600 leading-relaxed mb-6">
+                                Cảm ơn Mẹ vì sự kiên nhẫn, lòng tốt và những bài học về sự sẻ chia. Mẹ uốn nắn những tâm hồn ở trường và nuôi dưỡng trái tim con ở nhà. Mẹ là người hùng của con.
+                            </p>
+                            <div class="border-t border-gray-200 pt-4 flex justify-between items-center">
+                                <span class="font-hand text-xl text-gray-500">Yêu Mẹ nhiều</span>
+                                <i class="fas fa-heart text-red-500"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats / Quote Section -->
+    <section class="py-20 bg-brand-blue text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/black-chalk.png')]"></div>
+        <div class="max-w-4xl mx-auto px-6 text-center relative z-10 fade-in-section">
+            <i class="fas fa-quote-left text-4xl text-brand-gold mb-6 opacity-50"></i>
+            <blockquote class="font-serif text-2xl md:text-4xl leading-tight mb-8">
+                "Một người thầy giỏi có thể khơi dậy hy vọng, thổi bùng trí tưởng tượng và gieo mầm tình yêu học tập."
+            </blockquote>
+            <cite class="font-sans text-gray-400 not-italic block uppercase tracking-widest text-sm">— Brad Henry</cite>
+        </div>
+    </section>
+
+    <!-- Interactive Letter Section -->
+    <section id="surprise" class="min-h-screen py-20 flex items-center justify-center relative bg-brand-cream">
+        <div class="absolute inset-0 overflow-hidden">
+             <!-- Decorative elements -->
+             <div class="absolute -top-10 -left-10 text-9xl text-gray-200 transform rotate-12"><i class="fas fa-graduation-cap"></i></div>
+             <div class="absolute bottom-10 right-10 text-9xl text-gray-200 transform -rotate-12"><i class="fas fa-apple-whole"></i></div>
+        </div>
+
+        <div class="w-full max-w-lg px-4 relative z-10 fade-in-section">
+            <div class="text-center mb-10">
+                <h2 class="font-serif text-4xl font-bold text-brand-blue">Một Lá Thư Cho Ba Mẹ</h2>
+                <p class="text-gray-500 mt-2">Nhấn vào phong bì để mở</p>
+            </div>
+
+            <!-- 3D Envelope Container -->
+            <div class="envelope-container w-full h-96 cursor-pointer" onclick="openLetter()">
+                <div id="card" class="card-flip relative w-full h-full">
+                    
+                    <!-- Front (Envelope Closed) -->
+                    <div class="card-front absolute w-full h-full bg-white rounded-xl shadow-2xl flex items-center justify-center border-2 border-gray-100">
+                        <div class="absolute inset-0 bg-brand-gold opacity-5 pattern-grid-lg"></div>
+                        <div class="text-center">
+                            <div class="w-24 h-24 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-4 text-red-500 shadow-inner">
+                                <i class="fas fa-heart text-4xl animate-pulse"></i>
+                            </div>
+                            <h3 class="font-serif text-2xl font-bold text-gray-800">Gửi Ba Mẹ</h3>
+                            <p class="font-hand text-xl text-gray-500 mt-2">Nhấn để xem</p>
+                        </div>
+                        <!-- Envelope Flap styling -->
+                        <div class="absolute top-0 w-full h-1/2 bg-gradient-to-b from-gray-50 to-transparent opacity-50 rounded-t-xl pointer-events-none"></div>
+                    </div>
+
+                    <!-- Back (The Letter) -->
+                    <div class="card-back absolute w-full h-full bg-white rounded-xl shadow-2xl p-8 md:p-12 overflow-y-auto border-8 border-double border-brand-gold/20 flex flex-col justify-center">
+                        <div class="font-hand text-3xl mb-4 text-brand-gold">Kính gửi Ba Mẹ,</div>
+                        <p class="font-serif text-gray-700 leading-relaxed text-lg mb-6">
+                            Nhân ngày Nhà giáo Việt Nam 20/11, con muốn tôn vinh không chỉ sự nghiệp trồng người cao quý của ba mẹ, mà còn cả trái tim yêu thương ba mẹ dành cho con.
+                            <br><br>
+                            Ba mẹ đã dành cả đời để dạy dỗ biết bao thế hệ học trò, nhưng con vẫn là người học trò may mắn nhất vì được học những bài học làm người từ chính ba mẹ mỗi ngày.
+                        </p>
+                        <div class="mt-auto pt-4 border-t border-gray-100">
+                            <p class="font-sans text-xs text-gray-400 uppercase tracking-widest">Chúc Mừng 20/11</p>
+                            <p class="font-hand text-2xl text-brand-blue mt-2">Con của Ba Mẹ</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <button onclick="triggerConfetti()" class="px-8 py-3 bg-brand-gold text-white rounded-full font-bold shadow-lg hover:bg-yellow-600 transition transform hover:scale-105 active:scale-95">
+                    Chúc Mừng! <i class="fas fa-party-horn ml-2"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 py-8 text-center text-gray-500 text-sm">
+        <p>&copy; 2024. Dành tặng những người thầy tuyệt vời nhất trên thế giới.</p>
+    </footer>
+
+    <!-- Audio (Hidden) -->
+    <!-- Note: Browsers often block auto-play. The user must interact with the page first (click the music button) -->
+    <audio id="bgMusic" loop>
+        <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=piano-moment-110729.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        // --- Scroll Reveal Animation ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            }, observerOptions);
+
+            const sections = document.querySelectorAll('.fade-in-section');
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+
+        // --- Card Flip Logic ---
+        let isOpened = false;
+        function openLetter() {
+            const card = document.getElementById('card');
+            if(!isOpened) {
+                card.classList.add('flipped');
+                triggerConfetti();
+                playMusicIfNeeded();
+                isOpened = true;
+            } else {
+                card.classList.remove('flipped');
+                isOpened = false;
+            }
+        }
+
+        // --- Confetti Logic ---
+        function triggerConfetti() {
+            const duration = 3000;
+            const animationEnd = Date.now() + duration;
+            const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+
+            function random(min, max) {
+                return Math.random() * (max - min) + min;
+            }
+
+            function randomInRange(min, max) {
+                return Math.random() * (max - min) + min;
+            }
+
+            const interval = setInterval(function() {
+                const timeLeft = animationEnd - Date.now();
+
+                if (timeLeft <= 0) {
+                    return clearInterval(interval);
+                }
+
+                const particleCount = 50 * (timeLeft / duration);
+                
+                // Since particles fall down, start a bit higher than random
+                confetti(Object.assign({}, defaults, { 
+                    particleCount, 
+                    origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 },
+                    colors: ['#D4AF37', '#2C3E50', '#ffffff', '#FFD700']
+                }));
+                confetti(Object.assign({}, defaults, { 
+                    particleCount, 
+                    origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 },
+                    colors: ['#D4AF37', '#2C3E50', '#ffffff', '#FFD700']
+                }));
+            }, 250);
+        }
+
+        // --- Audio Logic ---
+        const audio = document.getElementById('bgMusic');
+        const musicBtn = document.getElementById('musicBtn');
+        let isPlaying = false;
+
+        function playMusic() {
+            if (isPlaying) {
+                audio.pause();
+                musicBtn.innerHTML = '<i class="fas fa-music"></i>';
+                musicBtn.classList.remove('animate-spin-slow'); // You can add a spin animation class in tailwind config if desired
+            } else {
+                audio.play().catch(e => console.log("Audio play failed usually due to browser policy:", e));
+                musicBtn.innerHTML = '<i class="fas fa-pause"></i>';
+            }
+            isPlaying = !isPlaying;
+        }
+
+        function playMusicIfNeeded() {
+            if (!isPlaying) {
+                playMusic();
+            }
+        }
+    </script>
+</body>
+</html>
